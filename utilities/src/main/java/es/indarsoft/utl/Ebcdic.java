@@ -10,7 +10,7 @@ public final class Ebcdic
 {
     
     /**
-	 * Convert an int to an ebcdic array of bytes.
+	 * Convert an int to a numeric ebcdic array of bytes.
 	 * <p>
 	 * Example : 6553-->(byte)0xF6,(byte)0xF5,(byte)0xF5,(byte)0xF3 
 	 * @param 	value to be converted
@@ -35,7 +35,7 @@ public final class Ebcdic
 	 * @param 	abyte     byte to be checked
 	 * @return  boolean 
 	 */	
-	public static boolean isNumericEbcdic( byte abyte ) {
+	public static boolean isNumeric( byte abyte ) {
 	
 		if ( abyte < (byte)0xF0 || abyte > (byte)0xF9 ) return false ;
 		
@@ -49,10 +49,10 @@ public final class Ebcdic
 	 * @return  boolean 
 	 *  
 	 */	
-	public static boolean isNumericEbcdic( byte[] abytearr ) {
+	public static boolean isNumeric( byte[] abytearr ) {
 	
 		for (int i=0;i< abytearr.length;i++){
-			if ( ! isNumericEbcdic( abytearr[i] ) ) return false ;
+			if ( ! isNumeric( abytearr[i] ) ) return false ;
 		}
 		return true ;
 	}
@@ -80,7 +80,7 @@ public final class Ebcdic
      */	
 	public static long toLong ( byte[] abytearr ) throws IllegalArgumentException {
 		
-		if ( ! isNumericEbcdic( abytearr ) ) throw new IllegalArgumentException("not EBCDIC numeric data !!") ;
+		if ( ! isNumeric( abytearr ) ) throw new IllegalArgumentException("not EBCDIC numeric data !!") ;
 		long value = 0L;
 		int num = abytearr.length;
 		byte[] ab = new byte[num];

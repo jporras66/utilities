@@ -35,7 +35,7 @@ public class AsciiTest  {
 		byte[] hexResult = { (byte)0x31,(byte)0x32,(byte)0x33,(byte)0x34,(byte)0x35,(byte)0x36,
 				  			 (byte)0x37,(byte)0x38,(byte)0x39,(byte)0x30 }; 
 		
-		byte[]	abytearr = Ascii.int2asciiArray(num); 
+		byte[]	abytearr = Ascii.int2byteArray(num); 
 		for (int i=0; i< abytearr.length;i++){
 			if ( abytearr[i] == hexResult[i]  ){
 				System.out.printf( className + "int2asciiArray : TRUE  0x%02X-->0x%02X \n", abytearr[i] , hexResult[i] );
@@ -157,6 +157,34 @@ public class AsciiTest  {
 			System.out.printf( className + "isNumericHex_03 : FALSE 0x%02X --> %c \n", (byte)c, c );
 			assertFalse( true) ;
 		}
+		
+	}
+
+	@Test
+	public void toInt() {
+		byte[] abytearr = { (byte)0x36,(byte)0x35,(byte)0x35,(byte)0x33 };
+		int value = Ascii.toInt(abytearr);
+		if ( value == 6553 ){
+			System.out.println( className + "toInt : TRUE  (byte)0x36,(byte)0x35,(byte)0x35,(byte)0x33 --> " + value) ; 
+			assertTrue( true) ; 
+		}else{  
+			System.out.println( className + "toInt : FALSE (byte)0x36,(byte)0x35,(byte)0x35,(byte)0x33 --> " + value ) ;
+			assertFalse( true) ;
+		}
+	}
+
+	@Test
+	public void toLong() {
+	
+		byte[] abytearr = { (byte)0x36,(byte)0x35,(byte)0x35,(byte)0x33 };
+		long value = Ascii.toLong(abytearr);
+		if ( value == 6553L ){
+			System.out.println( className + "toLong  : TRUE  (byte)0x36,(byte)0x35,(byte)0x35,(byte)0x33 --> " + value) ; 
+			assertTrue( true) ; 
+		}else{  
+			System.out.println( className + "toLong  : FALSE (byte)0x36,(byte)0x35,(byte)0x35,(byte)0x33 --> " + value ) ;
+			assertFalse( true) ;
+		}		
 		
 	}	
 }

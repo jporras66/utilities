@@ -23,30 +23,30 @@ public class EbcdicTest {
 	}
 
 	@Test
-	public void isNumericEbcdicByte() {
+	public void isNumericByte() {
 		
 		byte abyte = (byte)0xF6 ;
-		if ( Ebcdic.isNumericEbcdic(abyte) ){
-				System.out.printf( className + "isNumericEbcdicByte : TRUE  - 0xF0 <=  0x%X <= 0xF9 "  , abyte ) ; 
+		if ( Ebcdic.isNumeric(abyte) ){
+				System.out.printf( className + "isNumericByte : TRUE  - 0xF0 <=  0x%X <= 0xF9 "  , abyte ) ; 
 				assertTrue( true) ; 
 		}else{  
-				System.out.printf( className + "isNumericEbcdicByte : FALSE - 0xF0 <=  0x%X <= 0xF9 " , abyte) ;
+				System.out.printf( className + "isNumericByte : FALSE - 0xF0 <=  0x%X <= 0xF9 " , abyte) ;
 				assertFalse( true) ;
 		}
 	}
 
 	@Test
-	public void isNumericEbcdicByteArray() {
+	public void isNumericByteArray() {
 		
 		byte[] abytearr = { (byte)0xF0 ,  (byte)0xF5, (byte)0xF9} ;
-		if ( Ebcdic.isNumericEbcdic(abytearr) ){
+		if ( Ebcdic.isNumeric(abytearr) ){
 			for (int i=0; i<abytearr.length;i++){
-				System.out.printf( className + "isNumericEbcdicByte : TRUE  - 0xF0 <=  0x%X <= 0xF9 \n"  , abytearr[i] ) ;	
+				System.out.printf( className + "isNumericByteArray : TRUE  - 0xF0 <=  0x%X <= 0xF9 \n"  , abytearr[i] ) ;	
 			} 
 			assertTrue( true) ; 
 		}else{  
 			for (int i=0; i<abytearr.length;i++){
-				System.out.printf( className + "isNumericEbcdicByte : FALSE - 0xF0 <=  0x%X <= 0xF9 \n"  , abytearr[i] ) ;	
+				System.out.printf( className + "isNumericByteArray : FALSE - 0xF0 <=  0x%X <= 0xF9 \n"  , abytearr[i] ) ;	
 			} 
 			assertFalse( true) ;
 		}
@@ -69,7 +69,7 @@ public class EbcdicTest {
 	public void toLong() {
 
 		byte[] abytearr = { (byte)0xF6,(byte)0xF5,(byte)0xF5,(byte)0xF3 };
-		long value = Ebcdic.toInt(abytearr);
+		long value = Ebcdic.toLong(abytearr);
 		if ( value == 6553L ){
 			System.out.println( className + "toLong  : TRUE  (byte)0xF6,(byte)0xF5,(byte)0xF5,(byte)0xF3 --> " + value) ; 
 			assertTrue( true) ; 

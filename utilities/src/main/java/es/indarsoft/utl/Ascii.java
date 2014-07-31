@@ -9,7 +9,7 @@ package es.indarsoft.utl;
 public final class Ascii
 {   
     /**
-	 * Convert an integer to an Ascii array of bytes.
+	 * Convert an int to a numeric byte ascii array of bytes.
 	 * <p>
 	 * Example:<br>
 	 * input  :<br>
@@ -22,7 +22,7 @@ public final class Ascii
 	 * @param 	value input value 
 	 * @return	byte[] ascii coded
 	 */
-	public static byte[] int2asciiArray ( int value ){
+	public static byte[] int2byteArray ( int value ){
 		
 		
 		String str = String.valueOf( value ) ;
@@ -228,5 +228,39 @@ public final class Ascii
 			}
 		}
 		return blkdummy ;
+	}
+
+	/**
+	 * Convert an input ASCII byte array to int.
+	 * <p>
+	 * Example : (byte)0x36,(byte)0x35,(byte)0x35,(byte)0x33 --> 6553
+	 * @param 	abytearr ASCII coded
+	 * @return 	int result 
+	 */	
+	public static int toInt ( byte[] abytearr ) throws IllegalArgumentException {
+		
+		long value = toLong ( abytearr); 
+		if ( value < Integer.MIN_VALUE ) throw new IllegalArgumentException("int data underflow");
+		if ( value > Integer.MAX_VALUE ) throw new IllegalArgumentException("int data overflow") ;
+		int returned = (int) value; 
+		return returned ; 
+	}
+	/**
+	 * Convert an input numeric ASCII byte array to long.
+	 * <p>
+	 * @param 	abytearr numeric ASCII coded
+	 * @return 	long	value 
+	 */	
+	public static long toLong ( byte[] abytearr ) throws IllegalArgumentException {
+		
+		if ( ! isNumeric( abytearr ) ) throw new IllegalArgumentException("not ASCII numeric data !!") ;
+		long value = 0L;
+		int num = abytearr.length;
+		byte[] ab = new byte[num];
+		for (int i=0; i<num;i++){
+			ab[i] = (byte)( abytearr[i] - 0x30  );
+			value = value + (long) (  ab[i] *  Math.pow( 10 , num - i - 1  ) ) ;
+		}
+		return value ; 
 	}   	
 }
