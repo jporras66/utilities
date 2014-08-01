@@ -30,7 +30,7 @@ public class AsciiTest  {
 	}
 
 	@Test
-	public void int2asciiArray() {
+	public void int2byteArray() {
 	    int num = 1234567890;
 		byte[] hexResult = { (byte)0x31,(byte)0x32,(byte)0x33,(byte)0x34,(byte)0x35,(byte)0x36,
 				  			 (byte)0x37,(byte)0x38,(byte)0x39,(byte)0x30 }; 
@@ -38,9 +38,9 @@ public class AsciiTest  {
 		byte[]	abytearr = Ascii.int2byteArray(num); 
 		for (int i=0; i< abytearr.length;i++){
 			if ( abytearr[i] == hexResult[i]  ){
-				System.out.printf( className + "int2asciiArray : TRUE  0x%02X-->0x%02X \n", abytearr[i] , hexResult[i] );
+				System.out.printf( className + "int2byteArray : TRUE  0x%02X-->0x%02X \n", abytearr[i] , hexResult[i] );
 			}else{  
-				System.out.printf( className + "int2asciiArray : FALSE 0x%02X-->0x%02X \n", abytearr[i] , hexResult[i] );
+				System.out.printf( className + "int2byteArray : FALSE 0x%02X-->0x%02X \n", abytearr[i] , hexResult[i] );
 				assertFalse( true) ;
 			}
 		}	

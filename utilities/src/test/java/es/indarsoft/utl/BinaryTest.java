@@ -55,17 +55,17 @@ public class BinaryTest {
 	}
 	
 	@Test
-	public void getIntBytes () {
+	public void int2byteArray () {
 		//byte[] hexarr = { (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF};    
 		int value = 65535 ;
-		byte[] abytearr = Binary.getBytes(value);
+		byte[] abytearr = Binary.int2byteArray(value);
 		
 		if ( abytearr[0] == (byte)0x00 && abytearr[1] == (byte)0x00 &&
 			 abytearr[2] == (byte)0xFF && abytearr[3] == (byte)0xFF	){
-			System.out.println( className + "getIntBytes : TRUE  " + value + "-->" +"(byte)0x00,(byte)0x00,(byte)0xFF,(byte)0xFF ") ; 
+			System.out.println( className + "int2byteArray : TRUE  " + value + "-->" +"(byte)0x00,(byte)0x00,(byte)0xFF,(byte)0xFF ") ; 
 			assertTrue( true) ; 
 		}else{  
-			System.out.println( className + "getIntBytes : FALSE " ) ;
+			System.out.println( className + "int2byteArray : FALSE " ) ;
 			assertFalse( true) ;
 		}
 	}
