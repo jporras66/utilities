@@ -103,11 +103,11 @@ public final class Binary
 	/**
 	 * Convert an input long to a binary array 
 	 * <p>	
-	 * @param  	value	integer to be converted
+	 * @param  	value	long to be converted
 	 * @return	byte[]  binary coded byte array
 	 * 
 	 */
-	public static byte[] getBytes ( long value ){
+	public static byte[] long2byteArray ( long value ){
 	
 		byte[] bytes = ByteBuffer.allocate(8).putLong(value).array();
 		return bytes;

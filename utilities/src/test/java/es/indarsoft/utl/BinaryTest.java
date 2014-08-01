@@ -56,7 +56,6 @@ public class BinaryTest {
 	
 	@Test
 	public void int2byteArray () {
-		//byte[] hexarr = { (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF};    
 		int value = 65535 ;
 		byte[] abytearr = Binary.int2byteArray(value);
 		
