@@ -14,14 +14,42 @@ public class BinaryTest {
 	
 	@Test
 	public void toInt () {
-		byte[] hexarr = { (byte)0x00, (byte)0x00, (byte)0xFF, (byte)0xFF};    
+		byte[] hexarr = {  (byte)0xFF, (byte)0xFF};    
 		int ai = Binary.toInt(hexarr);
 		
 		if ( ai == 65535  ){
-			System.out.println( className + "toInt : TRUE  (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF --> "  + ai ) ; 
+			System.out.println( className + "toInt : TRUE  (byte)0xFF , (byte)0xFF --> "  + ai ) ; 
 			assertTrue( true) ; 
 		}else{  
-			System.out.println( className + "toInt : FALSE (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF --> " +  ai) ;
+			System.out.println( className + "toInt : FALSE (byte)0xFF , (byte)0xFF --> " +  ai) ;
+			assertFalse( true) ;
+		}
+	}
+	
+	@Test
+	public void toInt_02 () {
+		byte[] hexarr = {  (byte)0x00, (byte)0xFF, (byte)0xFF};    
+		int ai = Binary.toInt(hexarr);
+		
+		if ( ai == 65535  ){
+			System.out.println( className + "toInt_02 : TRUE  (byte)0x00, (byte)0xFF, (byte)0xFF --> "  + ai ) ; 
+			assertTrue( true) ; 
+		}else{  
+			System.out.println( className + "toInt_02 : FALSE (byte)0x00, (byte)0xFF, (byte)0xFF --> " +  ai) ;
+			assertFalse( true) ;
+		}
+	}
+	
+	@Test
+	public void toLong () {
+		byte[] hexarr = {  (byte)0x00, (byte)0x00, (byte)0xFF, (byte)0xFF};    
+		long ai = Binary.toLong(hexarr);
+		
+		if ( ai == 65535  ){
+			System.out.println( className + "toLong : TRUE  (byte)0x00, (byte)0x00, (byte)0xFF, (byte)0xFF --> "  + ai ) ; 
+			assertTrue( true) ; 
+		}else{  
+			System.out.println( className + "toLong : FALSE (byte)0x00, (byte)0x00, (byte)0xFF, (byte)0xFF --> " +  ai) ;
 			assertFalse( true) ;
 		}
 	}

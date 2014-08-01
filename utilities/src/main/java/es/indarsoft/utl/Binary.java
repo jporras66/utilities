@@ -14,9 +14,9 @@ public final class Binary
 
     
     /**
-     * Convert input binary byte array (Hexadecimal coded) to int.
+     * Convert input binary byte array (up to 4 bytes) to int.
      * <p>
-     * Example : (byte)0x00,(byte)0x00,(byte)0xFF,(byte)0xFF --> 65535
+     * Example : (byte)0xFF,(byte)0xFF --> 65535
      * @param 	abytearr	input data byte array
      * @return 	int result value
      * @exception java.lang.IllegalArgumentException 
@@ -24,15 +24,20 @@ public final class Binary
     
 	public static int toInt ( byte[] abytearr ) throws IllegalArgumentException {
 		
-		if ( abytearr.length > 4 ) throw new IllegalArgumentException("up to 4 length arrays !!") ;
-		ByteBuffer buf = ByteBuffer.wrap(abytearr);
+		int num = abytearr.length ;
+		if ( num > 4 ) throw new IllegalArgumentException("up to 4 length arrays !!") ;
+		byte[] dummy = new byte[4];
+		for (int i=num-1;i>=0;i--){
+			dummy[ i + (4 -  num)] = abytearr[i];
+		}
+		ByteBuffer buf = ByteBuffer.wrap(dummy);
 		int z = buf.getInt();
-		
 		return z;
 	}  
 
+
     /**
-     * Convert input binary byte array (Hexadecimal coded) to int.
+     * Convert input binary byte array (up to 8 bytes) to long.
      * <p>
      * Example : (byte)0x00,(byte)0x00,(byte)0xFF,(byte)0xFF --> 65535
      * @param 	abytearr	input data byte array
@@ -40,12 +45,16 @@ public final class Binary
      * @exception java.lang.IllegalArgumentException 
      */
     
-	public static int toLong ( byte[] abytearr ) throws IllegalArgumentException {
+	public static long toLong ( byte[] abytearr ) throws IllegalArgumentException {
 		
-		if ( abytearr.length > 4 ) throw new IllegalArgumentException("up to 4 length arrays !!") ;
-		ByteBuffer buf = ByteBuffer.wrap(abytearr);
-		int z = buf.getInt();
-		
+		int num = abytearr.length ;
+		if ( num > 8 ) throw new IllegalArgumentException("up to 8 length arrays !!") ;
+		byte[] dummy = new byte[8];
+		for (int i=num-1;i>=0;i--){
+			dummy[ i + (8 -  num)] = abytearr[i];
+		}
+		ByteBuffer buf = ByteBuffer.wrap(dummy);
+		long z = buf.getLong();
 		return z;
 	}     	
  	
