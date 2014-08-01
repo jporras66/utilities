@@ -13,15 +13,15 @@ public class BinaryTest {
      
 	
 	@Test
-	public void binaryArray2int () {
+	public void toInt () {
 		byte[] hexarr = { (byte)0x00, (byte)0x00, (byte)0xFF, (byte)0xFF};    
-		int ai = Binary.binaryArray2int(hexarr);
+		int ai = Binary.toInt(hexarr);
 		
 		if ( ai == 65535  ){
-			System.out.println( className + "binaryArray2int : TRUE  (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF --> "  + ai ) ; 
+			System.out.println( className + "toInt : TRUE  (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF --> "  + ai ) ; 
 			assertTrue( true) ; 
 		}else{  
-			System.out.println( className + "binaryArray2int : FALSE (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF --> " +  ai) ;
+			System.out.println( className + "toInt : FALSE (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF --> " +  ai) ;
 			assertFalse( true) ;
 		}
 	}
@@ -30,7 +30,7 @@ public class BinaryTest {
 	public void getIntBytes () {
 		//byte[] hexarr = { (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF};    
 		int value = 65535 ;
-		byte[] abytearr = Binary.getIntBytes(value);
+		byte[] abytearr = Binary.getBytes(value);
 		
 		if ( abytearr[0] == (byte)0x00 && abytearr[1] == (byte)0x00 &&
 			 abytearr[2] == (byte)0xFF && abytearr[3] == (byte)0xFF	){

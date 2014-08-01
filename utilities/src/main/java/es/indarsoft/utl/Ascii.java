@@ -246,16 +246,16 @@ public final class Ascii
 		return returned ; 
 	}
 	/**
-	 * Convert an input numeric ASCII byte array to long.
+	 * Convert an input numeric ASCII byte array (up to 8 bytes) to long.
 	 * <p>
 	 * @param 	abytearr numeric ASCII coded
 	 * @return 	long	value 
 	 */	
 	public static long toLong ( byte[] abytearr ) throws IllegalArgumentException {
-		
-		if ( ! isNumeric( abytearr ) ) throw new IllegalArgumentException("not ASCII numeric data !!") ;
 		long value = 0L;
 		int num = abytearr.length;
+		if ( ! isNumeric( abytearr ) ) throw new IllegalArgumentException("only 8 bytes ASCII numeric data allowed !!") ;
+		if ( num > 8 ) throw new IllegalArgumentException("only 8 bytes ASCII numeric data allowed !!") ;
 		byte[] ab = new byte[num];
 		for (int i=0; i<num;i++){
 			ab[i] = (byte)( abytearr[i] - 0x30  );

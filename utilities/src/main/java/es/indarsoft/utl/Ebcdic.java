@@ -73,16 +73,17 @@ public final class Ebcdic
 		return returned ; 
 	}
 	/**
-     * Convert an input numeric EBCDIC byte array to long.
+     * Convert an input numeric EBCDIC byte array (up to 8 bytes) to long.
      * <p>
      * @param 	abytearr numeric EBDCDIC coded
      * @return 	long	value 
      */	
 	public static long toLong ( byte[] abytearr ) throws IllegalArgumentException {
 		
-		if ( ! isNumeric( abytearr ) ) throw new IllegalArgumentException("not EBCDIC numeric data !!") ;
 		long value = 0L;
 		int num = abytearr.length;
+		if ( ! isNumeric( abytearr ) ) throw new IllegalArgumentException("only 8 bytes EBCDIC numeric data allowed !!") ;
+		if ( num > 8 ) throw new IllegalArgumentException("only 8 bytes EBCDIC numeric data allowed !!") ;
 		byte[] ab = new byte[num];
 		for (int i=0; i<num;i++){
 			ab[i] = (byte)( abytearr[i] - 0xF0  );

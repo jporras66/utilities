@@ -22,7 +22,7 @@ public final class Binary
      * @exception java.lang.IllegalArgumentException 
      */
     
-	public static int binaryArray2int ( byte[] abytearr ) throws IllegalArgumentException {
+	public static int toInt ( byte[] abytearr ) throws IllegalArgumentException {
 		
 		if ( abytearr.length > 4 ) throw new IllegalArgumentException("up to 4 length arrays !!") ;
 		ByteBuffer buf = ByteBuffer.wrap(abytearr);
@@ -31,7 +31,23 @@ public final class Binary
 		return z;
 	}  
 
-    	
+    /**
+     * Convert input binary byte array (Hexadecimal coded) to int.
+     * <p>
+     * Example : (byte)0x00,(byte)0x00,(byte)0xFF,(byte)0xFF --> 65535
+     * @param 	abytearr	input data byte array
+     * @return 	int result value
+     * @exception java.lang.IllegalArgumentException 
+     */
+    
+	public static int toLong ( byte[] abytearr ) throws IllegalArgumentException {
+		
+		if ( abytearr.length > 4 ) throw new IllegalArgumentException("up to 4 length arrays !!") ;
+		ByteBuffer buf = ByteBuffer.wrap(abytearr);
+		int z = buf.getInt();
+		
+		return z;
+	}     	
  	
     /** 
      * Convert input binary byte array to long.
@@ -42,7 +58,7 @@ public final class Binary
      * @exception java.lang.IllegalArgumentException  
      * 
      */
-	public static long binaryArray2intBaseRadix ( byte[] abytearr , int radix ) throws IllegalArgumentException {
+	public static long toLongBaseRadix ( byte[] abytearr , int radix ) throws IllegalArgumentException {
 		
 		long value = 0 ;
 		int num = abytearr.length ;
@@ -69,7 +85,7 @@ public final class Binary
 	 * @return	byte[]  binary coded byte array
 	 * 
 	 */
-	public static byte[] getIntBytes ( int value ){
+	public static byte[] getBytes ( int value ){
 		
 		byte[] bytes = ByteBuffer.allocate(4).putInt(value).array();
 		return bytes;
@@ -82,7 +98,7 @@ public final class Binary
 	 * @return	byte[]  binary coded byte array
 	 * 
 	 */
-	public static byte[] getLongBytes ( long value ){
+	public static byte[] getBytes ( long value ){
 	
 		byte[] bytes = ByteBuffer.allocate(8).putLong(value).array();
 		return bytes;

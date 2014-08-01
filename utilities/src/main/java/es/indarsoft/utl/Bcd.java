@@ -12,26 +12,7 @@ public final class Bcd {
 	
 	public static final byte POSITIVESIGN = 0x0C ;
 	public static final byte NEGATIVESIGN = 0x0D ; 
-	/**
-	 * Convert input binary byte array (BCD Coded) to int.
-	 * <p>
-	 * </br> Example : (byte)0x00, (byte)0x12, (byte)0x34 , (byte)0x56 --> 123456
-	 * </br>
-	 * @param 	abytearr input data byte array
-	 * @return 	int result value 
-	 */
-	
-	public static int binaryArray2intBaseDec ( byte[] abytearr ) throws IllegalArgumentException {
-		
-		if (! isBcd(abytearr) ) throw new IllegalArgumentException("is not a BCD byte array") ;
-		
-		long value = Binary.binaryArray2intBaseRadix ( abytearr, 10 ) ; 
-		
-		if ( value < Integer.MIN_VALUE ) throw new IllegalArgumentException("int data underflow");
-		if ( value > Integer.MAX_VALUE ) throw new IllegalArgumentException("int data overflow") ;
-		int returned = (int) value; 
-		return returned ; 
-	}
+
 	/** Returns a byte array copying numnibbles from input and discarding first upper nibble (from input)
 	 *  The output array is BCD codded.
 	 * <p>	
@@ -312,32 +293,37 @@ public final class Bcd {
 		return bcd;
 	}
 	
-	/** integer representation of a BCD coded byte.
+	/** Convert an input numeric BCD byte array (up to 4 bytes) to int.
 	 * <p>
-	 * @param 	abyte     byte to be converted
+	 * @param 	abytearr  byte to be converted
 	 * @return  integer   
 	 *  
 	 */		
-	public static int toInt( byte[] abyte ) {
+	public static int toInt( byte[] abytearr ) {
 
-		int 	num = 0 ;
-		String  str = toString ( abyte );
-		num = Integer.parseInt( str, 10 );
-		return num ; 
+		int value = 0 ;
+		int num = abytearr.length;
+		if ( ! isBcd( abytearr ) ) throw new IllegalArgumentException("only 4 bytes BCD numeric data allowed !!") ;
+		if ( num > 8 ) throw new IllegalArgumentException("only 4 bytes BCD numeric data allowed !!") ;
+		String  str = toString ( abytearr );
+		value = Integer.parseInt( str, 10 );
+		return value ; 
 	}	
-	/** long representation of a BCD coded byte.
+	/** Convert an input numeric BCD byte array (up to 8 bytes) to long.
 	 * <p>
-	 * @param 	abyte     byte to be converted
+	 * @param 	abytearr     byte to be converted
 	 * @return  long   
 	 *  
 	 */			
-	public static long toLong( byte[] abyte ) {
+	public static long toLong( byte[] abytearr ) {
 
-		long 	num = 0L ;
-		String  str = toString ( abyte );
-
-		num = Long.parseLong( str, 10 );
-		return num ; 
+		long value = 0L ;
+		int num = abytearr.length;
+		if ( ! isBcd( abytearr ) ) throw new IllegalArgumentException("only 8 bytes BCD numeric data allowed !!") ;
+		if ( num > 8 ) throw new IllegalArgumentException("only 8 bytes BCD numeric data allowed !!") ;
+		String  str = toString ( abytearr );
+		value = Long.parseLong( str, 10 );
+		return value ; 
 	}
 	
 	/** Numerical string representation of a BCD coded byte.
@@ -346,7 +332,7 @@ public final class Bcd {
 	 * @return  numerical string representation with leading sing 
 	 *  
 	 */	
-	private static String toString (byte abyte) {
+	public static String toString (byte abyte) {
 				
 		StringBuffer sb = new StringBuffer();
 		
