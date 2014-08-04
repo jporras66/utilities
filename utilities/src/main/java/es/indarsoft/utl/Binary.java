@@ -107,7 +107,7 @@ public final class Binary
 	 * @return	byte[]  binary coded byte array
 	 * 
 	 */
-	public static byte[] long2byteArray ( long value ){
+	public static byte[] getBytes ( long value ){
 	
 		byte[] bytes = ByteBuffer.allocate(8).putLong(value).array();
 		return bytes;
