@@ -55,10 +55,9 @@ public class BinaryTest {
 	}
 	
 	@Test
-	public void int2byteArray () {
-		//byte[] hexarr = { (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF};    
+	public void int2byteArray () { 
 		int value = 65535 ;
-		byte[] abytearr = Binary.getBytes(value);
+		byte[] abytearr = Binary.int2byteArray(value);
 		
 		if ( abytearr[0] == (byte)0x00 && abytearr[1] == (byte)0x00 &&
 			 abytearr[2] == (byte)0xFF && abytearr[3] == (byte)0xFF	){
@@ -69,7 +68,22 @@ public class BinaryTest {
 			assertFalse( true) ;
 		}
 	}
-	
+	@Test
+	public void long2byteArray () { 
+		long value = 65535L ;
+		byte[] abytearr = Binary.long2byteArray(value);
+		
+		if ( abytearr[0] == (byte)0x00 && abytearr[1] == (byte)0x00 &&
+			 abytearr[2] == (byte)0x00 && abytearr[3] == (byte)0x00 &&
+			 abytearr[4] == (byte)0x00 && abytearr[5] == (byte)0x00 &&
+			 abytearr[6] == (byte)0xFF && abytearr[7] == (byte)0xFF	){
+			System.out.println( className + "long2byteArray : TRUE  " + value + "-->" +"(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0xFF,(byte)0xFF ") ; 
+			assertTrue( true) ; 
+		}else{  
+			System.out.println( className + "long2byteArray : FALSE " ) ;
+			assertFalse( true) ;
+		}
+	}	
 	@Test
 	public void toBitStr () {
 		byte data = (byte) 0xEA;  
