@@ -94,7 +94,7 @@ public final class Binary
 	 * @return	byte[]  binary coded byte array
 	 * 
 	 */
-	public static byte[] int2byteArray ( int value ){
+	public static byte[] getBytes ( int value ){
 		
 		byte[] bytes = ByteBuffer.allocate(4).putInt(value).array();
 		return bytes;

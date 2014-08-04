@@ -57,7 +57,7 @@ public class BinaryTest {
 	@Test
 	public void int2byteArray () {
 		int value = 65535 ;
-		byte[] abytearr = Binary.int2byteArray(value);
+		byte[] abytearr = Binary.getBytes(value);
 		
 		if ( abytearr[0] == (byte)0x00 && abytearr[1] == (byte)0x00 &&
 			 abytearr[2] == (byte)0xFF && abytearr[3] == (byte)0xFF	){
