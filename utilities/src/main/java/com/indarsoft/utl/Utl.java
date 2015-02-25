@@ -101,4 +101,8 @@ public class Utl {
 		}
 		
 	}
+
+	public static String getSeparator() {
+		return separator;
+	}
 }
