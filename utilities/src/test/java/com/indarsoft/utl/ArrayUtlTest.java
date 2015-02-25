@@ -1,10 +1,10 @@
-package es.indarsoft.utl;
+package com.indarsoft.utl;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import es.indarsoft.utl.ArrayUtl;
+import com.indarsoft.utl.ArrayUtl;
 
 public class ArrayUtlTest {
 

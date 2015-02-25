@@ -1,4 +1,4 @@
-package es.indarsoft.utl;
+package com.indarsoft.utl;
 
 /**
  * EBCDIC Data utilities

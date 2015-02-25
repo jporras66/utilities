@@ -1,7 +1,10 @@
-package es.indarsoft.utl;
+package com.indarsoft.utl;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
+
+import com.indarsoft.utl.Binary;
 
 public class BinaryTest {
 

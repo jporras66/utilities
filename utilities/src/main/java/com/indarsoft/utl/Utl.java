@@ -1,4 +1,4 @@
-package es.indarsoft.utl;
+package com.indarsoft.utl;
 
 import java.io.File;
 import java.io.FileInputStream;

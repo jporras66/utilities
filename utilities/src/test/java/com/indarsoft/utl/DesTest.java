@@ -1,8 +1,13 @@
-package es.indarsoft.utl;
+package com.indarsoft.utl;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import com.indarsoft.utl.ArrayUtl;
+import com.indarsoft.utl.Ascii;
+import com.indarsoft.utl.Binary;
+import com.indarsoft.utl.Des;
 
 public class DesTest {
 
