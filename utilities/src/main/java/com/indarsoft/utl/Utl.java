@@ -108,8 +108,21 @@ public class Utl {
 	
 	public static void writePidFile ( String pidfile ){
 		
-    	String astr = "pid is : " +  Utl.getProcessId();
+    	String astr = Long.toString( Utl.getProcessId() ) ;
 		Utl.writeBinary( pidfile , Ascii.string2byteArray( astr ) );
+	}
+	
+	public static void deletePidFile ( String pidfile ){
+		
+		File f = new File( pidfile );
+		f.delete() ;
+	}
+	
+	public static void renamePidFile ( String pidfile ){
+		
+		File fi = new File ( pidfile );
+		File fo = new File ( pidfile + ".old" ) ;
+		fi.renameTo( fo ) ;
 	}
 	
 	public static String loadFile ( String filename ){
