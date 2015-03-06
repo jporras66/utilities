@@ -106,6 +106,18 @@ public class Utl {
 		return separator;
 	}
 	
+	public static void writePidFile ( String pidfile ){
+		
+    	String astr = "pid is : " +  Utl.getProcessId();
+		Utl.writeBinary( pidfile , Ascii.string2byteArray( astr ) );
+	}
+	
+	public static String loadFile ( String filename ){
+		
+    	String str =  Binary.toPrintableString( loadBinary( filename ) );
+		return str ;
+	}
+	
 	public static boolean fileExists( String filePathString ) {
 		File f = new File(filePathString);
 		if ( f.exists() && !f.isDirectory() ) return true ;
