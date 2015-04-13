@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
+
 /**
  * Some utilities
  * 
@@ -46,7 +47,7 @@ public class Utl {
         // before the @ symbol is the PID.
         //
         String jvmName = bean.getName();
-        System.out.println("Name = " + jvmName);
+        //System.out.println("Name = " + jvmName);
  
         //
         // Extract the PID by splitting the string returned by the
@@ -55,6 +56,7 @@ public class Utl {
         long pid = Long.valueOf(jvmName.split("@")[0]);
         //System.out.println("PID  = " + pid);
         return pid  ;
+//
     }	
 
 	public static byte[] loadBinary ( String filename ){
@@ -112,17 +114,21 @@ public class Utl {
 		Utl.writeBinary( pidfile , Ascii.string2byteArray( astr ) );
 	}
 	
-	public static void deletePidFile ( String pidfile ){
+	public static boolean deletePidFile ( String pidfile ){
 		
 		File f = new File( pidfile );
-		f.delete() ;
+		return f.delete() ;
 	}
 	
-	public static void renamePidFile ( String pidfile ){
+	public static boolean renamePidFile ( String pidfile ){
 		
 		File fi = new File ( pidfile );
-		File fo = new File ( pidfile + ".old" ) ;
-		fi.renameTo( fo ) ;
+		byte[] b = Ascii.string2byteArray( loadFile ( pidfile ) ) ;
+		if ( ! fi.delete() ) return false ;
+		
+		writeBinary ( pidfile + ".old", b );
+		return true;
+		
 	}
 	
 	public static String loadFile ( String filename ){

@@ -16,9 +16,9 @@ public final class Binary
     /**
      * Convert input binary byte array (up to 4 bytes) to int.
      * <p>
-     * Example : (byte)0xFF,(byte)0xFF --> 65535
-     * @param 	abytearr	input data byte array
-     * @return 	int result value
+     * Example :  (byte)0x00 (byte)0x00 (byte)0xFF,(byte)0xFF --> 65535
+     * @param 	  abytearr	input data byte array
+     * @return 	  int result value
      * @exception java.lang.IllegalArgumentException 
      */
     
@@ -35,6 +35,27 @@ public final class Binary
 		return z;
 	}  
 
+    /**
+     * Convert input binary byte array (up to 2 bytes) to short integer (2 bytes) .
+     * <p>
+     * Example :  (byte)0xFF,(byte)0xFF --> 65535
+     * @param 	  abytearr	input data byte array
+     * @return 	  int result value
+     * @exception java.lang.IllegalArgumentException 
+     */
+    
+	public static int toShort ( byte[] abytearr ) throws IllegalArgumentException {
+		
+		int num = abytearr.length ;
+		if ( num > 2 ) throw new IllegalArgumentException("up to 2 length arrays !!") ;
+		byte[] dummy = new byte[4];
+		for (int i=num-1;i>=0;i--){
+			dummy[ i + (2 -  num)] = abytearr[i];
+		}
+		ByteBuffer buf = ByteBuffer.wrap(dummy);
+		short z = buf.getShort();
+		return z;
+	}  
 
     /**
      * Convert input binary byte array (up to 8 bytes) to long.
@@ -86,6 +107,25 @@ public final class Binary
 		return value ; 
 	}  
 	
+	/*
+	 * short: The short data type is a 16-bit signed two's complement integer (2 bytes). 
+	 * It has a minimum value of -32,768 and a maximum value of 32,767 (inclusive).
+	 * 	
+	 */
+	/**
+	 * Convert an input short integer (2 bytes)  to a binary array. 
+	 * <p>
+	 * Example : 255 --> (byte)0x00 , (byte)0xFF	
+	 * @param  	value	integer to be converted
+	 * @return	byte[]  binary coded byte array
+	 * 
+	 */
+	public static byte[] short2byteArray ( short value ){
+		
+		byte[] bytes = ByteBuffer.allocate(2).putShort(value).array();
+		return bytes;
+	}  
+	
 	/**
 	 * Convert an input integer to a binary array. 
 	 * <p>
@@ -98,7 +138,7 @@ public final class Binary
 		
 		byte[] bytes = ByteBuffer.allocate(4).putInt(value).array();
 		return bytes;
-	}  
+	} 
 
 	/**
 	 * Convert an input long to a binary array 
