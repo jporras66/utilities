@@ -242,7 +242,8 @@ public final class Binary
 	    return buf.toString( );
 	}
 	/**
-	 * Convert an input byte array into a String Non-printable characters are replaced by '.'
+	 * Convert an input byte array into a String 
+	 * Non-printable characters are replaced by '.'
 	 * <p>
 	 * @param abytearr the array containing the characters
 	 * @return a String representation for the byte array
@@ -252,6 +253,18 @@ public final class Binary
 		return toPrintableString ( abytearr , '.');
 	}
     
+	/**
+	 * Convert a byte into a String
+	 * <p>
+	 * @param abytearr the array containing the characters
+	 * @return a String representation for the byte array
+	 */
+	public static String toPrintableString( byte b) {
+		
+		byte[] abytearr = { b } ;
+		return toPrintableString ( abytearr , '.');
+	}
+	
     /**
 	 * Convert an input byte array into a String Non-printable characters are replaced by char c.
 	 * <p>
