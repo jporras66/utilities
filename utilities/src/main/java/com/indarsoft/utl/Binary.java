@@ -320,7 +320,7 @@ public final class Binary
 
 
 	/**
-	 * Uncompress a BCD numeric byte array (array_length mod 4 = 0), to an ASCII byte array
+	 * !!! To review !!!! Uncompress a BCD numeric byte array (array_length mod 4 = 0), to an ASCII byte array
 	 * <p>
 	 * Example :
 	 * <pre>
