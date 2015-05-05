@@ -11,27 +11,6 @@ public class AsciiTest  {
    
     
 	@Test
-	public void string2byteArray() {
-		
-	    String hexDigits = "0123456789ABCDEF";
-		byte[] hexResult = { (byte)0x30,(byte)0x31,(byte)0x32,(byte)0x33,(byte)0x34,(byte)0x35,(byte)0x36,
-				  			 (byte)0x37,(byte)0x38,(byte)0x39,
-				  			 (byte)0x41,(byte)0x42,(byte)0x43,(byte)0x44,(byte)0x45,(byte)0x46}; 
-		
-		byte[]	abytearr = Ascii.string2byteArray(hexDigits) ; 
-		for (int i=0; i< abytearr.length;i++){
-			char c = hexDigits.charAt(i);
-			if ( abytearr[i] == hexResult[i]  ){
-				System.out.printf( className + "string2byteArray : TRUE  %c 0x%02X-->0x%02X \n", c, abytearr[i] , hexResult[i] );
-			}else{  
-				System.out.printf( className + "string2byteArray : FALSE %c 0x%02X-->0x%02X \n", c, abytearr[i] , hexResult[i] );
-				assertFalse( true) ;
-			}
-		}	
-		assertTrue( true) ; 
-	}
-
-	@Test
 	public void int2byteArray() {
 	    int num = 1234567890;
 		byte[] hexResult = { (byte)0x31,(byte)0x32,(byte)0x33,(byte)0x34,(byte)0x35,(byte)0x36,
@@ -190,19 +169,4 @@ public class AsciiTest  {
 		
 	}	
 	
-	@Test
-	public void encodeHex() {
-	
-		String result = "6162636465666768696A6B6C6D6E6F707172737475767778797A4142434445464748494A4B4C4D4E4F505152535455565758595A";
-		String alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		String s = Ascii.encodeHex ( alpha ).toUpperCase() ;
-		if ( s.equals( result ) ){
-			System.out.println( className + "encodeHex  : TRUE " + alpha+"-"+ s + " --> " + result) ; 
-			assertTrue( true) ; 
-		}else{  
-			System.out.println( className + "encodeHex  : FALSE "+ alpha+"-"+ s + " --> " + result ) ;
-			assertFalse( true) ;
-		}		
-		
-	}
 }

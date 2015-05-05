@@ -3,9 +3,7 @@ package com.indarsoft.utl;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
 import com.indarsoft.utl.ArrayUtl;
-import com.indarsoft.utl.Ascii;
 import com.indarsoft.utl.Binary;
 import com.indarsoft.utl.Des;
 
@@ -23,7 +21,7 @@ public class DesTest {
 	@Test
 	public void decrypt() {
 		byte[] clear = null;
-		byte[] abytearr = Ascii.string2byteArray(clearText) ;
+		byte[] abytearr = clearText.getBytes() ;
 		try {
 			clear = Des.decrypt( cipher,  deskeyA);
 		} catch (Exception e) {
@@ -43,7 +41,7 @@ public class DesTest {
 
 	@Test
 	public void encrypt() {
-		byte[] abytearr = Ascii.string2byteArray(clearText) ;
+		byte[] abytearr = clearText.getBytes() ;
 		byte[] ciphertxt = null;
 		try {
 			ciphertxt = Des.encrypt( abytearr,  deskeyA);
@@ -65,7 +63,7 @@ public class DesTest {
 	@Test
 	public void tdesDecrypt() {
 		byte[] clear = null;
-		byte[] abytearr = Ascii.string2byteArray(clearText) ;
+		byte[] abytearr = clearText.getBytes();
 		try {
 			byte[] deskey = ArrayUtl.concat( deskeyA , deskeyB );
 			clear = Des.tdesDecrypt( cipher,  deskey);
@@ -86,7 +84,7 @@ public class DesTest {
 
 	@Test
 	public void tdesEncrypt() {
-		byte[] abytearr = Ascii.string2byteArray(clearText) ;
+		byte[] abytearr = clearText.getBytes();
 		byte[] ciphertxt = null;
 		try {
 			byte[] deskey = ArrayUtl.concat( deskeyA , deskeyB );

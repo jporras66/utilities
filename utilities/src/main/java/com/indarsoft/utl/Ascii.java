@@ -1,7 +1,5 @@
 package com.indarsoft.utl;
 
-import org.apache.commons.codec.binary.Hex;
-
 /**
  * ASCII data Utilities
  * 
@@ -150,25 +148,6 @@ public final class Ascii
         return ( ch >= 32 && ch < 127 );
     } 	
 	/**
-	     * Convert an input String to a byte array by taking the 8 ASCII bits of each character it contains.
-	     * <p>
-	     * Example: <br>
-	     * <tab>input  : <br>
-	     * "0123456789ABCDEF" <br>
-		 * output : <br>
-		 * (byte)0x30,(byte)0x31,(byte)0x32,(byte)0x33,(byte)0x34,(byte)0x35,(byte)0x36,(byte)0x37,<br>
-		 * (byte)0x38,(byte)0x39, (byte)0x41,(byte)0x42,(byte)0x43,(byte)0x44,(byte)0x45,(byte)0x46
-	     * 
-	     * @param 	astr 	the string to be converted
-	     * 
-	     * @return  ASCII byte array representation
-	     */
-	    public static byte[] string2byteArray(String astr )
-	    {
-	        return astr.getBytes(); 
-	    }
-
-	/**
 	 * Compress an Ascii (hexadecimal) numeric byte array.
 	 * <p>
 	 * Example :
@@ -266,17 +245,17 @@ public final class Ascii
 		return value ; 
 	}   	
 	
-	/**
+	/*
 	 * Convert an input String to his hexadecimal codification.
 	 * <p>
 	 * @param 	s input string
 	 * @return 	string hexadecimal representation 
 	 */	
-	public static String encodeHex ( String s ) {
+	/*public static String encodeHex ( String s ) {
 		
 		String hexString = Hex.encodeHexString( s.getBytes() );
 		return hexString ;
 		
-	}
+	}*/
 	
 }
