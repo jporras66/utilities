@@ -1,5 +1,7 @@
 package com.indarsoft.utl;
 
+import org.apache.commons.codec.binary.Hex;
+
 /**
  * ASCII data Utilities
  * 
@@ -263,4 +265,18 @@ public final class Ascii
 		}
 		return value ; 
 	}   	
+	
+	/**
+	 * Convert an input String to his hexadecimal codification.
+	 * <p>
+	 * @param 	s input string
+	 * @return 	string hexadecimal representation 
+	 */	
+	public static String encodeHex ( String s ) {
+		
+		String hexString = Hex.encodeHexString( s.getBytes() );
+		return hexString ;
+		
+	}
+	
 }

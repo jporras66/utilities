@@ -189,4 +189,20 @@ public class AsciiTest  {
 		}		
 		
 	}	
+	
+	@Test
+	public void encodeHex() {
+	
+		String result = "6162636465666768696A6B6C6D6E6F707172737475767778797A4142434445464748494A4B4C4D4E4F505152535455565758595A";
+		String alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String s = Ascii.encodeHex ( alpha ).toUpperCase() ;
+		if ( s.equals( result ) ){
+			System.out.println( className + "encodeHex  : TRUE " + alpha+"-"+ s + " --> " + result) ; 
+			assertTrue( true) ; 
+		}else{  
+			System.out.println( className + "encodeHex  : FALSE "+ alpha+"-"+ s + " --> " + result ) ;
+			assertFalse( true) ;
+		}		
+		
+	}
 }
