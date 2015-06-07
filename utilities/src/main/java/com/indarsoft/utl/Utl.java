@@ -111,7 +111,7 @@ public class Utl {
 	public static void writePidFile ( String pidfile ){
 		
     	String astr = Long.toString( Utl.getProcessId() ) ;
-		Utl.writeBinary( pidfile , Ascii.string2byteArray( astr ) );
+		Utl.writeBinary( pidfile ,  astr.getBytes() );
 	}
 	
 	public static boolean deletePidFile ( String pidfile ){
@@ -123,7 +123,7 @@ public class Utl {
 	public static boolean renamePidFile ( String pidfile ){
 		
 		File fi = new File ( pidfile );
-		byte[] b = Ascii.string2byteArray( loadFile ( pidfile ) ) ;
+		byte[] b = loadFile ( pidfile ).getBytes() ;
 		if ( ! fi.delete() ) return false ;
 		
 		writeBinary ( pidfile + ".old", b );
