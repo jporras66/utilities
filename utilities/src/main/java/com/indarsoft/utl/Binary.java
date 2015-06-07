@@ -256,7 +256,7 @@ public final class Binary
 	/**
 	 * Convert a byte into a String
 	 * <p>
-	 * @param abytearr the array containing the characters
+	 * @param b byte containing the characters
 	 * @return a String representation for the byte array
 	 */
 	public static String toPrintableString( byte b) {
