@@ -15,11 +15,11 @@ public final class Binary
     
     /**
      * Convert input binary byte array (up to 4 bytes) to int.
+     * Example :  (byte)0x00 (byte)0x00 (byte)0xFF,(byte)0xFF is 65535
      * <p>
-     * Example :  (byte)0x00 (byte)0x00 (byte)0xFF,(byte)0xFF --> 65535
      * @param 	  abytearr	input data byte array
      * @return 	  int result value
-     * @exception java.lang.IllegalArgumentException 
+     * @exception java.lang.IllegalArgumentException if an illegal value arrives
      */
     
 	public static int toInt ( byte[] abytearr ) throws IllegalArgumentException {
@@ -36,12 +36,12 @@ public final class Binary
 	}  
 
     /**
-     * Convert input binary byte array (up to 2 bytes) to short integer (2 bytes) .
+     * Convert input binary byte array (up to 2 bytes) to short integer (2 bytes).
+     * Example :  (byte)0xFF,(byte)0xFF is 65535     
      * <p>
-     * Example :  (byte)0xFF,(byte)0xFF --> 65535
      * @param 	  abytearr	input data byte array
      * @return 	  int result value
-     * @exception java.lang.IllegalArgumentException 
+     * @exception java.lang.IllegalArgumentException if an illegal value arrives
      */
     
 	public static int toShort ( byte[] abytearr ) throws IllegalArgumentException {
@@ -59,11 +59,11 @@ public final class Binary
 
     /**
      * Convert input binary byte array (up to 8 bytes) to long.
+     * Example : (byte)0x00,(byte)0x00,(byte)0xFF,(byte)0xFF is 65535
      * <p>
-     * Example : (byte)0x00,(byte)0x00,(byte)0xFF,(byte)0xFF --> 65535
      * @param 	abytearr	input data byte array
      * @return 	int result value
-     * @exception java.lang.IllegalArgumentException 
+     * @exception java.lang.IllegalArgumentException if an illegal value arrives
      */
     
 	public static long toLong ( byte[] abytearr ) throws IllegalArgumentException {
@@ -85,7 +85,7 @@ public final class Binary
      * @param 	abytearr input data byte array
      * @param  	radix 10 Decimal 16 Hexadecimal 8 Octal
      * @return 	int result value
-     * @exception java.lang.IllegalArgumentException  
+     * @exception java.lang.IllegalArgumentException  if an illegal value arrives
      * 
      */
 	public static long toLongBaseRadix ( byte[] abytearr , int radix ) throws IllegalArgumentException {
@@ -114,8 +114,8 @@ public final class Binary
 	 */
 	/**
 	 * Convert an input short integer (2 bytes)  to a binary array. 
+	 * Example : 255 is (byte)0x00 , (byte)0xFF	
 	 * <p>
-	 * Example : 255 --> (byte)0x00 , (byte)0xFF	
 	 * @param  	value	integer to be converted
 	 * @return	byte[]  binary coded byte array
 	 * 
@@ -128,8 +128,8 @@ public final class Binary
 	
 	/**
 	 * Convert an input integer to a binary array. 
+	 * Example : 65535 is (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF	
 	 * <p>
-	 * Example : 65535 --> (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF	
 	 * @param  	value	integer to be converted
 	 * @return	byte[]  binary coded byte array
 	 * 
@@ -155,7 +155,7 @@ public final class Binary
 	/**
      * Return input byte as a bit string representation.
      * <p>
-     * Example :  (byte)0xEA --> "11101010" 
+     * Example :  (byte)0xEA is "11101010" 
      * @param data the byte to be converted.
      * @return a string representation of bits (bit by bit) 
      */
@@ -193,7 +193,7 @@ public final class Binary
 	/**
      * Return input byte array as a bit string.
      * <p>
-     * Example :  (byte)0xEA,(byte)0x07 --> "1110101000000111"  
+     * Example :  (byte)0xEA,(byte)0x07 is "1110101000000111"  
      * @param abytearr byte array to be converted.
      * @return a string representation of bits (bit by bit) 
      */
@@ -209,8 +209,8 @@ public final class Binary
 
 	/**
 	 * Return input byte as a hex string.
+	 * Example :  0xFA is "FA"
 	 * <p>
-	 * Example :  0xFA --> "FA"
 	 * @param abyte to be converted.
 	 * @return a hex representation of data.
 	 */
@@ -223,8 +223,8 @@ public final class Binary
 	}
 	/**
 	 * Return input byte array as a hex string.
+	 * Example :  0xFA,0xBC is "FABC"
 	 * <p>
-	 * Example :  0xFA,0xBC --> "FABC"
 	 * @param abytearr byte array to be converted.
 	 * @return a hex representation of data.
 	 */
@@ -329,7 +329,7 @@ public final class Binary
 	 * </pre> 
 	 * @param blkIN input Ascii numeric byte array
 	 * @return compressed BCD byte array
-	 * @exception java.lang.IllegalArgumentException
+	 * @exception java.lang.IllegalArgumentException if an illegal value arrives
 	 * 
 	 */
 	public static byte[] uncompressBlock(byte[] blkIN ){

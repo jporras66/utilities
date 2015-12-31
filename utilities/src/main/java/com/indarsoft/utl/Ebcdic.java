@@ -11,8 +11,8 @@ public final class Ebcdic
     
     /**
 	 * Convert an int to a numeric ebcdic array of bytes.
+	 * Example : 6553 is (byte)0xF6,(byte)0xF5,(byte)0xF5,(byte)0xF3 
 	 * <p>
-	 * Example : 6553-->(byte)0xF6,(byte)0xF5,(byte)0xF5,(byte)0xF3 
 	 * @param 	value to be converted
 	 * @return	EBCDIC coded byte array 
 	 */
@@ -43,8 +43,8 @@ public final class Ebcdic
 	}     
     
     /** Check if a byte array is EBCDIC numeric Coded.
+	 * EBCDIC numeric are between 0xF0 and 0xF9 
 	 * <p>
-	 * EBCDIC numeric are between 0xF0 and 0xF9
 	 * @param 	abytearr     byte array to be checked
 	 * @return  boolean 
 	 *  
@@ -60,7 +60,7 @@ public final class Ebcdic
 	/**
      * Convert an input EBCDIC byte array to int.
      * <p>
-     * Example : (byte)0xF6,(byte)0xF5,(byte)0xF5,(byte)0xF3 --> 6553
+     * Example : (byte)0xF6,(byte)0xF5,(byte)0xF5,(byte)0xF3 is 6553
      * @param 	abytearr EBDCDIC coded
      * @return 	int result 
      */	

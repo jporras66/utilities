@@ -16,7 +16,7 @@ public class ArrayUtl {
 	 * Note: To be improved !!
 	 * @param fc  input array 
 	 * @param sc input array
-	 * @return <T> T[]
+	 * @return  T[]
 	 * 
 	 */	
 	public static <T> T[] concat(T[] fc, T[] sc) {

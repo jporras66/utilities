@@ -371,9 +371,9 @@ public final class ThreadUtilities
 	 * A null is returned if no such thread info is found.
 	 *
 	 * @param	id	the thread ID to search for
-	 * @return		the thread info, or null if not found
-	 * @throws	IllegalArgumentException
-	 *			if id <= 0
+	 * @return	the thread info, or null if not found
+	 * @throws	IllegalArgumentException if an illegal value arrives
+	 *			
 	 */
 	public static ThreadInfo getThreadInfo( final long id )
 	{

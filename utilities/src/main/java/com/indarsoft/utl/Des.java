@@ -20,7 +20,7 @@ public class Des {
      * @param 	cipherText input data byte array
      * @param 	desKey input key
      * @return 	clear text
-     * @exception java.lang.Exception 
+     * @exception java.lang.Exception if general exception occurs
      */
 	public static byte[] decrypt(byte[] cipherText, byte[] desKey) throws Exception {
 
@@ -46,7 +46,7 @@ public class Des {
      * @param 	clearText input data byte array
      * @param 	desKey input key
      * @return 	cipher text
-     * @exception java.lang.Exception 
+     * @exception java.lang.Exception if general exception occurs
      */
 	public static byte[] encrypt(byte[] clearText, byte[] desKey) throws Exception {
 

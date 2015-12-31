@@ -157,7 +157,7 @@ public final class Ascii
 	 * </pre> 
 	 * @param blkIN input Ascii numeric byte array
 	 * @return compressed byte array
-	 * @exception java.lang.IllegalArgumentException
+	 * @exception java.lang.IllegalArgumentException if an illegal value arrives
 	 * 
 	 */
 	public static byte[] compressBlock(byte[] blkIN)  throws IllegalArgumentException{
@@ -189,7 +189,7 @@ public final class Ascii
 	 * </pre> 
 	 * @param  blkIN input Ascii numeric byte array
 	 * @return numeric value as bytes
-	 * @exception java.lang.IllegalArgumentException
+	 * @exception java.lang.IllegalArgumentException if an illegal value arrives
 	 * 
 	 */
 	public static byte[] getNumericValue(byte[] blkIN)  throws IllegalArgumentException{
@@ -213,8 +213,8 @@ public final class Ascii
 
 	/**
 	 * Convert an input ASCII byte array to int.
+	 * Example : (byte)0x36,(byte)0x35,(byte)0x35,(byte)0x33 is 6553
 	 * <p>
-	 * Example : (byte)0x36,(byte)0x35,(byte)0x35,(byte)0x33 --> 6553
 	 * @param 	abytearr ASCII coded
 	 * @return 	int result 
 	 */	
