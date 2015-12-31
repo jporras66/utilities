@@ -15,7 +15,7 @@ public final class Binary
     
     /**
      * Convert input binary byte array (up to 4 bytes) to int.
-     * Example :  (byte)0x00 (byte)0x00 (byte)0xFF,(byte)0xFF is 65535
+     * Example :  (byte)0x00 (byte)0x00 (byte)0xFF,(byte)0xFF --{@literal>} 65535
      * <p>
      * @param 	  abytearr	input data byte array
      * @return 	  int result value
@@ -37,7 +37,7 @@ public final class Binary
 
     /**
      * Convert input binary byte array (up to 2 bytes) to short integer (2 bytes).
-     * Example :  (byte)0xFF,(byte)0xFF is 65535     
+     * Example :  (byte)0xFF,(byte)0xFF --{@literal>} 65535     
      * <p>
      * @param 	  abytearr	input data byte array
      * @return 	  int result value
@@ -59,7 +59,7 @@ public final class Binary
 
     /**
      * Convert input binary byte array (up to 8 bytes) to long.
-     * Example : (byte)0x00,(byte)0x00,(byte)0xFF,(byte)0xFF is 65535
+     * Example : (byte)0x00,(byte)0x00,(byte)0xFF,(byte)0xFF --{@literal>} 65535
      * <p>
      * @param 	abytearr	input data byte array
      * @return 	int result value
@@ -114,7 +114,7 @@ public final class Binary
 	 */
 	/**
 	 * Convert an input short integer (2 bytes)  to a binary array. 
-	 * Example : 255 is (byte)0x00 , (byte)0xFF	
+	 * Example : 255 --{@literal>} (byte)0x00 , (byte)0xFF	
 	 * <p>
 	 * @param  	value	integer to be converted
 	 * @return	byte[]  binary coded byte array
@@ -128,7 +128,7 @@ public final class Binary
 	
 	/**
 	 * Convert an input integer to a binary array. 
-	 * Example : 65535 is (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF	
+	 * Example : 65535 --{@literal>} (byte)0x00, (byte)0x00, (byte)0xFF , (byte)0xFF	
 	 * <p>
 	 * @param  	value	integer to be converted
 	 * @return	byte[]  binary coded byte array
@@ -155,7 +155,7 @@ public final class Binary
 	/**
      * Return input byte as a bit string representation.
      * <p>
-     * Example :  (byte)0xEA is "11101010" 
+     * Example :  (byte)0xEA --{@literal>} "11101010" 
      * @param data the byte to be converted.
      * @return a string representation of bits (bit by bit) 
      */
@@ -193,7 +193,7 @@ public final class Binary
 	/**
      * Return input byte array as a bit string.
      * <p>
-     * Example :  (byte)0xEA,(byte)0x07 is "1110101000000111"  
+     * Example :  (byte)0xEA,(byte)0x07 --{@literal>} "1110101000000111"  
      * @param abytearr byte array to be converted.
      * @return a string representation of bits (bit by bit) 
      */
@@ -209,7 +209,7 @@ public final class Binary
 
 	/**
 	 * Return input byte as a hex string.
-	 * Example :  0xFA is "FA"
+	 * Example :  0xFA --{@literal>} "FA"
 	 * <p>
 	 * @param abyte to be converted.
 	 * @return a hex representation of data.
@@ -223,7 +223,7 @@ public final class Binary
 	}
 	/**
 	 * Return input byte array as a hex string.
-	 * Example :  0xFA,0xBC is "FABC"
+	 * Example :  0xFA,0xBC --{@literal>} "FABC"
 	 * <p>
 	 * @param abytearr byte array to be converted.
 	 * @return a hex representation of data.

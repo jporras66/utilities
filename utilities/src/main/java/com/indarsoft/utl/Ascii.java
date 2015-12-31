@@ -213,7 +213,7 @@ public final class Ascii
 
 	/**
 	 * Convert an input ASCII byte array to int.
-	 * Example : (byte)0x36,(byte)0x35,(byte)0x35,(byte)0x33 is 6553
+	 * Example : (byte)0x36,(byte)0x35,(byte)0x35,(byte)0x33 --{@literal >} 6553
 	 * <p>
 	 * @param 	abytearr ASCII coded
 	 * @return 	int result 
