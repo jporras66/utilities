@@ -6,8 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * Some utilities
@@ -123,7 +127,7 @@ public class Utl {
 	public static boolean renamePidFile ( String pidfile ){
 		
 		File fi = new File ( pidfile );
-		byte[] b = loadFile ( pidfile ).getBytes() ;
+		byte[] b = loadFileasStr ( pidfile ).getBytes() ;
 		if ( ! fi.delete() ) return false ;
 		
 		writeBinary ( pidfile + ".old", b );
@@ -131,10 +135,19 @@ public class Utl {
 		
 	}
 	
-	public static String loadFile ( String filename ){
+	public static String loadFileasStr ( String filename ){
 		
     	String str =  Binary.toPrintableString( loadBinary( filename ) );
 		return str ;
+	}
+	
+	public List<String> loadFile( String path ) throws IOException {
+		
+		List<String> lines = Files.readAllLines( Paths.get(path), Charset.defaultCharset() );
+/*        for (String line : lines) {
+            System.out.println(line);
+        }*/
+        return lines ;
 	}
 	
 	public static boolean fileExists( String filePathString ) {
