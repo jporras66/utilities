@@ -141,7 +141,7 @@ public class Utl {
 		return str ;
 	}
 	
-	public List<String> loadFile( String path ) throws IOException {
+	public static List<String> loadFile( String path ) throws IOException {
 		
 		List<String> lines = Files.readAllLines( Paths.get(path), Charset.defaultCharset() );
 /*        for (String line : lines) {
